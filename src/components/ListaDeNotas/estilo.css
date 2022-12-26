@@ -1,0 +1,10 @@
+li {
+    background-color: lightblue;
+    list-style-type: none;
+    margin-bottom: 5px;
+    margin-right: 0;
+}
+
+ul {
+    font-size: 18px;
+}
