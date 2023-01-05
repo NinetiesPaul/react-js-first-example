@@ -12,7 +12,7 @@ class ListaDeNotas extends Component {
                     this.props.notes.map((note, index) => {
                         return (
                             <li key={index}>
-                                <CardNota title={note.title} text={note.text}/>
+                                <CardNota title={note.title} text={note.text} group={note.group}/>
                             </li>
                         )
                     })
