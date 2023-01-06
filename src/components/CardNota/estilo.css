@@ -5,3 +5,7 @@
 .card-nota{
     background-color: lightskyblue;
 }
+
+svg {
+    float: right;
+}
