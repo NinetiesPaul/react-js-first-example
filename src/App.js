@@ -13,7 +13,7 @@ class App extends Component {
 		};
 	}
 
-	cardCreation(title, text, group) {
+	noteCreation(title, text, group) {
 		const newNote = {title, text, group};
 		const newNotesList = [...this.state.notesList, newNote];
 		const newState = {
@@ -22,21 +22,29 @@ class App extends Component {
 		this.setState(newState);
 	}
 
-	groupCreation(title) {
-		const newGroup = {title};
-		const newGroupList = [...this.state.groupsList, newGroup];
+	groupCreation(group) {
+		const newGroupList = [...this.state.groupsList, group];
 		const newState = {
 			groupsList: newGroupList
 		}
 		this.setState(newState);
 	}
 
+	noteDelete(index){
+		let updatedNotesList = this.state.notesList;
+		updatedNotesList.splice(index,1);
+		const updatedState = {
+			notesList: updatedNotesList
+		}
+		this.setState(updatedState);
+	}
+
 	render() {
 		return (
 			<section>
 				<GroupCadastro groupCreation={this.groupCreation.bind(this)} />
-				<FormularioCadastro cardCreation={this.cardCreation.bind(this)} groups={this.state.groupsList} />
-				<ListaDeNotas notes={this.state.notesList}/>
+				<FormularioCadastro noteCreation={this.noteCreation.bind(this)} groups={this.state.groupsList} />
+				<ListaDeNotas notes={this.state.notesList} noteDelete={this.noteDelete.bind(this)}/>
 			</section>
 		)
 	};
