@@ -19,14 +19,12 @@ class FormularioCadastro extends Component {
 
     _handleGroupChange(event){
         this.group = event.target.value;
-        console.log(this.group)
     }
 
     _cardCreation(event){
         event.preventDefault();
         event.stopPropagation();
-        console.log(this.group, this.title)
-        this.props.cardCreation(this.title, this.note, this.group)
+        this.props.noteCreation(this.title, this.note, this.group)
     }
 
     render() {
@@ -37,8 +35,8 @@ class FormularioCadastro extends Component {
                     {
                         this.props.groups.map((group, index) => {
                             return (
-                                <option key={index} value={group.title}>
-                                    {group.title}
+                                <option key={index} value={group}>
+                                    {group}
                                 </option>
                             )
                         })
