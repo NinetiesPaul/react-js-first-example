@@ -2,26 +2,17 @@ import React, { Component } from "react";
 
 class GroupCadastro extends Component {
 
-    constructor(props){
-        super(props);
-        this.title = "";
-    }
-
-    _handleGroupChange(event){
-        this.title = event.target.value;
-    }
-
     _groupCreation(event){
-        event.preventDefault();
-        event.stopPropagation();
-        this.props.groupCreation(this.title)
+        if (event.key === "Enter") {
+            this.props.groupCreation(event.target.value)
+        }
     }
 
     render() {
         return (
-            <form onSubmit={this._groupCreation.bind(this)}>
-                <input type="text" placeholder="Grupo" onChange={this._handleGroupChange.bind(this)} /><br/>
-            </form>
+            <section>
+                <input type="text" placeholder="Grupo" onKeyUp={this._groupCreation.bind(this)} /><br/>
+            </section>
         );
     }
 }
