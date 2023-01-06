@@ -21,7 +21,6 @@ class GroupCadastro extends Component {
         return (
             <form onSubmit={this._groupCreation.bind(this)}>
                 <input type="text" placeholder="Grupo" onChange={this._handleGroupChange.bind(this)} /><br/>
-                <button>Cadastrar Grupo</button>
             </form>
         );
     }
