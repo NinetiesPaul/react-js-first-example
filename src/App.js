@@ -16,9 +16,9 @@ class App extends Component {
 	render() {
 		return (
 			<section>
-				<GroupCadastro groupCreation={this.groups.groupCreation} />
-				<FormularioCadastro noteCreation={this.notes.noteCreation} groups={this.groups.groups} />
-				<ListaDeNotas noteDelete={this.notes.noteDelete} notes={this.notes.notes} />
+				<GroupCadastro groupCreation={this.groups.groupCreation.bind(this.groups)} />
+				<FormularioCadastro noteCreation={this.notes.noteCreation.bind(this.notes)} groups={this.groups} />
+				<ListaDeNotas noteDelete={this.notes.noteDelete.bind(this.notes)} notes={this.notes} />
 			</section>
 		)
 	};
