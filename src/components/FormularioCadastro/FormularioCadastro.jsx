@@ -7,6 +7,16 @@ class FormularioCadastro extends Component {
         this.title = "";
         this.note = "";
         this.group = "";
+
+        this.state = { groups: [] };
+    }
+
+    componentDidMount(){
+        this.props.groups.subscribe(this._newGroups.bind(this));
+    }
+
+    _newGroups(groups){
+        this.setState({ ...this.state, groups });
     }
 
     _handleTitleChange(event){
@@ -33,7 +43,7 @@ class FormularioCadastro extends Component {
                 <select onChange={this._handleGroupChange.bind(this)}>
                     <option> -- </option>
                     {
-                        this.props.groups.map((group, index) => {
+                        this.state.groups.map((group, index) => {
                             return (
                                 <option key={index} value={group}>
                                     {group}
